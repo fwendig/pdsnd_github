@@ -72,6 +72,9 @@ def load_data(city, month, day):
     df['month'] = df['Start Time'].dt.month
     # extract day name from Start Time and create new column day_of_week
     df['day_of_week'] = df['Start Time'].dt.day_name()
+    # extract month name from Start Time and create new column month_of_year
+    df['month_of_year'] = df['Start Time'].dt.month_name()
+
 
     # if month is not equal to all, use month list and its index to filter data
     if month != 'all':
@@ -94,11 +97,10 @@ def time_stats(df):
     start_time = time.time()
 
     # display the most common month
-    # definition of months list
-    months = ['January', 'February', 'March', 'April', 'May', 'June']
-    # common month number with mode-function, and correction of index
-    common_month = df['month'].mode()[0]-1
-    print('Most Frequent Start Month:', months[common_month])
+
+    common_month_of_year = df['month_of_year'].mode()[0]
+    print('Most Frequent Start Month:',common_month_of_year)
+
 
     # display the most common day of week
     common_day_of_week = df['day_of_week'].mode()[0]
@@ -213,16 +215,16 @@ def display_raw_data(df):
     Args:
         (DataFrame) df - Pandas DataFrame containing city data filtered by month and day
     """
-    # displays the first 5 rows with start_index = 0 and end_index = 5
+    # displays the first 10 rows with start_index = 0 and end_index = 10
     next = 0
-    print(df.iloc[next:5])
-    # displays next 5 rows, whilst start_index icrement by 5 and end_index = start_index +5. As long as user types yes.
+    print(df.iloc[next:10])
+    # displays next 10 rows, whilst start_index icrement by 10 and end_index = start_index +10. As long as user types yes.
     while True:
-        view_raw_data = input('\nEnter yes, if you like to see additional five rows of raw data.>>')
+        view_raw_data = input('\nEnter yes, if you like to see additional ten rows of raw data.>>')
         if view_raw_data.lower() != 'yes':
             return
-        next = next + 5
-        print(df.iloc[next:next+5])
+        next = next + 10
+        print(df.iloc[next:next+10])
 
 
 
@@ -239,9 +241,9 @@ def main():
         trip_duration_stats(df)
         user_stats(df)
 
-        # asking for the first 5 rows of raw data to invoke display_raw_data-function
+        # asking for the first 10 rows of raw data to invoke display_raw_data-function
         while True:
-            view_raw_data = input('\nEnter yes, if you like to see first five rows of raw data!>>')
+            view_raw_data = input('\nEnter yes, if you like to see first ten rows of raw data!>>')
             if view_raw_data.lower() != 'yes':
                 break
             display_raw_data(df)
