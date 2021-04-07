@@ -2,7 +2,7 @@
 07.04.2021
 
 ### Project Title
-Explore US Bikeshare Data
+**Explore US Bikeshare Data**
 
 ### Description
 In this project, I used Python to explore data related to bike share systems for three major cities in the United States—Chicago, New York City, and Washington. Data is imported from <city>.csv file, which is determined by the user.
@@ -32,7 +32,7 @@ The interactive experience in the terminal to present these statistics is accomp
 **Display raw data on user request.**
 
 ### Files and Packages used
-Data files <city>.csv from Udacity
+Data files 'city'.csv from Udacity \
 Pandas
 
 ### Credits
