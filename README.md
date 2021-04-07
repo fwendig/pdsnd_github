@@ -31,6 +31,9 @@ The interactive experience in the terminal to present these statistics is accomp
 
 **Display raw data on user request.**
 
+#### Acknowledgement
+This project was part of Udacity NanoDegree Data Science with Python.
+
 ### Files and Packages used
 Data files 'city'.csv from Udacity \
 Pandas
